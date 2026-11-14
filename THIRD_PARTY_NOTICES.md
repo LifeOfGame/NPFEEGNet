@@ -11,5 +11,10 @@ reference/2a.json and reference/2b.json. The public training entry point
 extracts the NPFEEGNet small-learning-rate/S&R workflow from those experiment
 runners and exposes data and output locations as command-line arguments.
 
-External runtime dependencies are PyTorch, NumPy and scikit-learn. Their
+External runtime dependencies are PyTorch, NumPy, SciPy and scikit-learn. Their
 own licenses apply to those packages.
+
+prepare_data.py directly reads the BNCI MAT recordings using SciPy.
+The file naming and host URL follow the BNCI dataset distribution also used
+by MOABB. Reference loader documentation is available at
+https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/bnci/bnci_2014.py.

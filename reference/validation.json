@@ -23,5 +23,16 @@
     }
   ],
   "scope": "CPU parity, one recorded checkpoint and short end-to-end runs per dataset",
-  "full_54_run_retraining_performed": false
+  "full_54_run_retraining_performed": false,
+  "preprocessing": {
+    "datasets": [
+      "2a",
+      "2b"
+    ],
+    "subjects_per_dataset": 9,
+    "raw_mat_files": 36,
+    "arrays": 108,
+    "byte_identical_to_recorded_experiment": true,
+    "mat_to_training_and_test": "PASS, one subject and one seed per dataset, two source epochs"
+  }
 }

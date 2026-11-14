@@ -38,8 +38,43 @@ Hardware and runtime differences can affect numerical training trajectories.
 
 ## Prepared data
 
-Training starts from the processed NumPy arrays used by the experiments.
-Place each dataset's files in its own directory.
+Use the **BNCI MAT versions** of BCIC-IV-2a and BCIC-IV-2b.
+The downloader uses the BNCI data host and file names also used by
+[MOABB](https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/bnci/bnci_2014.py).
+The following commands download missing MAT recordings, create the exact
+training arrays, and check every array against the experimental SHA-256 records.
+
+```bash
+python prepare_data.py --dataset 2a --mat-dir data/raw/2a --output data/2a --download
+python prepare_data.py --dataset 2b --mat-dir data/raw/2b --output data/2b --download
+python verify_data.py --dataset 2a --data-dir data/2a
+python verify_data.py --dataset 2b --data-dir data/2b
+```
+
+For recordings downloaded manually, put A01T.mat through A09E.mat in
+`data/raw/2a`, and B01T.mat through B09E.mat in `data/raw/2b`, then run
+the same preparation commands with `--download` omitted.
+Example source URLs are
+[A01T.mat](https://lampx.tugraz.at/~bci/database/001-2014/A01T.mat) and
+[B01T.mat](https://lampx.tugraz.at/~bci/database/004-2014/B01T.mat).
+Dataset access and reuse follow the providers' terms.
+
+Preparation reads MATLAB's 1-based trial onset indices, selects the first
+22 EEG columns for 2a or first three EEG columns for 2b, and extracts
+1000 samples at the trial-relative offsets specified below. MAT recordings
+already contain 250-Hz microvolt signals. Their acquisition preprocessing
+is retained, and all task trials, including artifact-flagged trials, are
+retained. The model applies raw-pathway demeaning during its forward pass.
+Task runs and trials retain their MAT order.
+
+All 108 exported arrays (54 per dataset, nine subjects with two splits and
+three array types) were rebuilt from MAT recordings and matched the recorded
+experiment files byte for byte on 14 November 2026. Raw-file and exported-file
+hashes are in `reference/preprocessing_2a.json` and
+`reference/preprocessing_2b.json`. Preparation writes a manifest in its
+output directory and requires a fresh location for the arrays.
+
+The resulting directory layout is
 
 ```text
 data/2a/
