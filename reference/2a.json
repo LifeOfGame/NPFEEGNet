@@ -1,0 +1,262 @@
+{
+  "dataset": "2a",
+  "runs": [
+    {
+      "subject": 1,
+      "seed": 0,
+      "accuracy": 0.8333333333333334,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1232
+    },
+    {
+      "subject": 1,
+      "seed": 1,
+      "accuracy": 0.8506944444444444,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1490
+    },
+    {
+      "subject": 1,
+      "seed": 2,
+      "accuracy": 0.84375,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1344
+    },
+    {
+      "subject": 2,
+      "seed": 0,
+      "accuracy": 0.7291666666666666,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1688
+    },
+    {
+      "subject": 2,
+      "seed": 1,
+      "accuracy": 0.6770833333333334,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1504
+    },
+    {
+      "subject": 2,
+      "seed": 2,
+      "accuracy": 0.6875,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1704
+    },
+    {
+      "subject": 3,
+      "seed": 0,
+      "accuracy": 0.9444444444444444,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1432
+    },
+    {
+      "subject": 3,
+      "seed": 1,
+      "accuracy": 0.9479166666666666,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1417
+    },
+    {
+      "subject": 3,
+      "seed": 2,
+      "accuracy": 0.9305555555555556,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 918
+    },
+    {
+      "subject": 4,
+      "seed": 0,
+      "accuracy": 0.8333333333333334,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1306
+    },
+    {
+      "subject": 4,
+      "seed": 1,
+      "accuracy": 0.7916666666666666,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1496
+    },
+    {
+      "subject": 4,
+      "seed": 2,
+      "accuracy": 0.8263888888888888,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1642
+    },
+    {
+      "subject": 5,
+      "seed": 0,
+      "accuracy": 0.8055555555555556,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1858
+    },
+    {
+      "subject": 5,
+      "seed": 1,
+      "accuracy": 0.8402777777777778,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1918
+    },
+    {
+      "subject": 5,
+      "seed": 2,
+      "accuracy": 0.8125,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1881
+    },
+    {
+      "subject": 6,
+      "seed": 0,
+      "accuracy": 0.7048611111111112,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1586
+    },
+    {
+      "subject": 6,
+      "seed": 1,
+      "accuracy": 0.6597222222222222,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1400
+    },
+    {
+      "subject": 6,
+      "seed": 2,
+      "accuracy": 0.6805555555555556,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 884
+    },
+    {
+      "subject": 7,
+      "seed": 0,
+      "accuracy": 0.9027777777777778,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1515
+    },
+    {
+      "subject": 7,
+      "seed": 1,
+      "accuracy": 0.9097222222222222,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1354
+    },
+    {
+      "subject": 7,
+      "seed": 2,
+      "accuracy": 0.8784722222222222,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1760
+    },
+    {
+      "subject": 8,
+      "seed": 0,
+      "accuracy": 0.8402777777777778,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1330
+    },
+    {
+      "subject": 8,
+      "seed": 1,
+      "accuracy": 0.8784722222222222,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1210
+    },
+    {
+      "subject": 8,
+      "seed": 2,
+      "accuracy": 0.8611111111111112,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1908
+    },
+    {
+      "subject": 9,
+      "seed": 0,
+      "accuracy": 0.8645833333333334,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1312
+    },
+    {
+      "subject": 9,
+      "seed": 1,
+      "accuracy": 0.8611111111111112,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1632
+    },
+    {
+      "subject": 9,
+      "seed": 2,
+      "accuracy": 0.8194444444444444,
+      "target_trials": 288,
+      "parameters": 13545,
+      "retrain_epochs": 1065
+    }
+  ],
+  "runtime": {
+    "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]",
+    "torch": "2.11.0+cu126",
+    "cuda": "12.6",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0"
+  },
+  "selected_epochs": {
+    "sub01_seed0_npf": 1232,
+    "sub01_seed1_npf": 1490,
+    "sub01_seed2_npf": 1344,
+    "sub02_seed0_npf": 1688,
+    "sub02_seed1_npf": 1504,
+    "sub02_seed2_npf": 1704,
+    "sub03_seed0_npf": 1432,
+    "sub03_seed1_npf": 1417,
+    "sub03_seed2_npf": 918,
+    "sub04_seed0_npf": 1306,
+    "sub04_seed1_npf": 1496,
+    "sub04_seed2_npf": 1642,
+    "sub05_seed0_npf": 1858,
+    "sub05_seed1_npf": 1918,
+    "sub05_seed2_npf": 1881,
+    "sub06_seed0_npf": 1586,
+    "sub06_seed1_npf": 1400,
+    "sub06_seed2_npf": 884,
+    "sub07_seed0_npf": 1515,
+    "sub07_seed1_npf": 1354,
+    "sub07_seed2_npf": 1760,
+    "sub08_seed0_npf": 1330,
+    "sub08_seed1_npf": 1210,
+    "sub08_seed2_npf": 1908,
+    "sub09_seed0_npf": 1312,
+    "sub09_seed1_npf": 1632,
+    "sub09_seed2_npf": 1065
+  },
+  "model_sha256": {
+    "npf_eegnet_rd": "dd5fe8581175021744e2bbabb361134503afce044bd5cf21a1590495db06c450",
+    "eegnet_encoder": "96ffa7b9522fe6fde5354673a7811627082c539501e2dc8a7c7d482c53b5886c"
+  }
+}

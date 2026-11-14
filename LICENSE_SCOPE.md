@@ -1,18 +1,9 @@
 # License scope
 
-The existing Apache License 2.0 is retained for the project's own source and documentation to the extent its copyright holders have the right to license them: model/, training/, train.py, predict.py, the included tests/configurations, and newly authored packaging/verification documentation and scripts. It does not license EEG recordings, participant data, external dependencies or third-party material. Author identities and final publication metadata remain to be confirmed.
+The NPFEEGNet model, training, inference and summary code in this tree is
+distributed under Apache-2.0, provided in LICENSE. Model architecture attribution
+is retained in model/eegnet_encoder.py and THIRD_PARTY_NOTICES.md.
 
-The supplied run-level evidence is historical scientific output; preserving it here does not imply a new experiment or a new license for the originating datasets. No raw EEG or checkpoints are distributed.
-
-Legacy EEG-CSANet-derived engines and unresolved mixed-provenance baseline implementations are not included. This license must not be interpreted as a grant to those excluded files. See docs/REPRODUCTION_COVERAGE.md.
-
-Added experiment-specific preprocessing, analysis and wrapper code is covered
-only to the extent of project-owned authorship; it conveys no license to imported
-legacy dependencies. ATCNet adaptation retains its upstream Apache-2.0 notice.
-The independent Conformer implementation retains its paper/source provenance.
-Anonymous classifier outputs are scientific evidence, not raw EEG redistribution.
-
-`baselines/vendor_fbcnet.py` is third-party MIT software, not relicensed under
-the project's Apache grant. Its full MIT notice is distributed alongside it.
-New independent adapters and the maintained v2 engine do not include the
-excluded legacy training or mixed-baseline files. See docs/LICENSE_RESOLUTION.md.
+The reference directory contains records of the latest 2a and 2b NPFEEGNet
+experiments. Dataset access and reuse follow the terms of the original dataset
+providers. PyTorch, NumPy and scikit-learn retain their respective licenses.

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-14",
+  "checks": [
+    {
+      "dataset": "2a",
+      "parameters": 13545,
+      "model_source_byte_identical": true,
+      "augmentation_exact": true,
+      "cpu_epoch_weights_and_bn_exact": true,
+      "recorded_checkpoint_decisions_exact": true,
+      "cli_selection_retraining_inference": "PASS",
+      "smoke_source_epochs": 2
+    },
+    {
+      "dataset": "2b",
+      "parameters": 11813,
+      "model_source_byte_identical": true,
+      "augmentation_exact": true,
+      "cpu_epoch_weights_and_bn_exact": true,
+      "recorded_checkpoint_decisions_exact": true,
+      "cli_selection_retraining_inference": "PASS",
+      "smoke_source_epochs": 2
+    }
+  ],
+  "scope": "CPU parity, one recorded checkpoint and short end-to-end runs per dataset",
+  "full_54_run_retraining_performed": false
+}

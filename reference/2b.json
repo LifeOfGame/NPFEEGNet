@@ -1,0 +1,262 @@
+{
+  "dataset": "2b",
+  "runs": [
+    {
+      "subject": 1,
+      "seed": 0,
+      "accuracy": 0.75625,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 117
+    },
+    {
+      "subject": 1,
+      "seed": 1,
+      "accuracy": 0.753125,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 243
+    },
+    {
+      "subject": 1,
+      "seed": 2,
+      "accuracy": 0.7875,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 890
+    },
+    {
+      "subject": 2,
+      "seed": 0,
+      "accuracy": 0.6642857142857143,
+      "target_trials": 280,
+      "parameters": 11813,
+      "retrain_epochs": 507
+    },
+    {
+      "subject": 2,
+      "seed": 1,
+      "accuracy": 0.6785714285714286,
+      "target_trials": 280,
+      "parameters": 11813,
+      "retrain_epochs": 473
+    },
+    {
+      "subject": 2,
+      "seed": 2,
+      "accuracy": 0.7035714285714286,
+      "target_trials": 280,
+      "parameters": 11813,
+      "retrain_epochs": 245
+    },
+    {
+      "subject": 3,
+      "seed": 0,
+      "accuracy": 0.865625,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 348
+    },
+    {
+      "subject": 3,
+      "seed": 1,
+      "accuracy": 0.84375,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 245
+    },
+    {
+      "subject": 3,
+      "seed": 2,
+      "accuracy": 0.85,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 321
+    },
+    {
+      "subject": 4,
+      "seed": 0,
+      "accuracy": 0.978125,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1993
+    },
+    {
+      "subject": 4,
+      "seed": 1,
+      "accuracy": 0.98125,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1501
+    },
+    {
+      "subject": 4,
+      "seed": 2,
+      "accuracy": 0.984375,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 177
+    },
+    {
+      "subject": 5,
+      "seed": 0,
+      "accuracy": 0.921875,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1310
+    },
+    {
+      "subject": 5,
+      "seed": 1,
+      "accuracy": 0.91875,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1955
+    },
+    {
+      "subject": 5,
+      "seed": 2,
+      "accuracy": 0.909375,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1897
+    },
+    {
+      "subject": 6,
+      "seed": 0,
+      "accuracy": 0.853125,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 918
+    },
+    {
+      "subject": 6,
+      "seed": 1,
+      "accuracy": 0.8875,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1742
+    },
+    {
+      "subject": 6,
+      "seed": 2,
+      "accuracy": 0.89375,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 669
+    },
+    {
+      "subject": 7,
+      "seed": 0,
+      "accuracy": 0.925,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1021
+    },
+    {
+      "subject": 7,
+      "seed": 1,
+      "accuracy": 0.925,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1793
+    },
+    {
+      "subject": 7,
+      "seed": 2,
+      "accuracy": 0.940625,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 445
+    },
+    {
+      "subject": 8,
+      "seed": 0,
+      "accuracy": 0.946875,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1811
+    },
+    {
+      "subject": 8,
+      "seed": 1,
+      "accuracy": 0.95625,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 483
+    },
+    {
+      "subject": 8,
+      "seed": 2,
+      "accuracy": 0.95625,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 587
+    },
+    {
+      "subject": 9,
+      "seed": 0,
+      "accuracy": 0.915625,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1743
+    },
+    {
+      "subject": 9,
+      "seed": 1,
+      "accuracy": 0.903125,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1981
+    },
+    {
+      "subject": 9,
+      "seed": 2,
+      "accuracy": 0.925,
+      "target_trials": 320,
+      "parameters": 11813,
+      "retrain_epochs": 1694
+    }
+  ],
+  "runtime": {
+    "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]",
+    "torch": "2.11.0+cu126",
+    "cuda": "12.6",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0"
+  },
+  "selected_epochs": {
+    "sub01_seed0_smalllr_sr": 117,
+    "sub01_seed1_smalllr_sr": 243,
+    "sub01_seed2_smalllr_sr": 890,
+    "sub02_seed0_smalllr_sr": 507,
+    "sub02_seed1_smalllr_sr": 473,
+    "sub02_seed2_smalllr_sr": 245,
+    "sub03_seed0_smalllr_sr": 348,
+    "sub03_seed1_smalllr_sr": 245,
+    "sub03_seed2_smalllr_sr": 321,
+    "sub04_seed0_smalllr_sr": 1993,
+    "sub04_seed1_smalllr_sr": 1501,
+    "sub04_seed2_smalllr_sr": 177,
+    "sub05_seed0_smalllr_sr": 1310,
+    "sub05_seed1_smalllr_sr": 1955,
+    "sub05_seed2_smalllr_sr": 1897,
+    "sub06_seed0_smalllr_sr": 918,
+    "sub06_seed1_smalllr_sr": 1742,
+    "sub06_seed2_smalllr_sr": 669,
+    "sub07_seed0_smalllr_sr": 1021,
+    "sub07_seed1_smalllr_sr": 1793,
+    "sub07_seed2_smalllr_sr": 445,
+    "sub08_seed0_smalllr_sr": 1811,
+    "sub08_seed1_smalllr_sr": 483,
+    "sub08_seed2_smalllr_sr": 587,
+    "sub09_seed0_smalllr_sr": 1743,
+    "sub09_seed1_smalllr_sr": 1981,
+    "sub09_seed2_smalllr_sr": 1694
+  },
+  "model_sha256": {
+    "npf_eegnet_rd": "dd5fe8581175021744e2bbabb361134503afce044bd5cf21a1590495db06c450",
+    "eegnet_encoder": "96ffa7b9522fe6fde5354673a7811627082c539501e2dc8a7c7d482c53b5886c"
+  }
+}

@@ -1,102 +1,118 @@
-# NPFEEGNet-RD
+# NPFEEGNet
 
-Fixed spectral-residual EEGNet with raw-branch trial-wise temporal demeaning.
+NPFEEGNet combines a trial-wise demeaned EEGNet-style raw pathway with a
+fixed five-band, response-normalized spectral pathway. The two pathways
+have separate encoders. All five bands share the spectral encoder. The
+classification scores are combined as raw + α × spectral, with α initialized
+to 0.1 and constrained by α = 0.5 sigmoid(a).
 
-**Version 0.5.0: maintained implementation and audit evidence.** This version contains the independent maintained model/training/inference path and portable audits of available historical evidence. It excludes the legacy EEG-CSANet-derived training engine and does not certify full numerical reproduction of all manuscript experiments. See [release scope](docs/RELEASE_v0.5.0.md), [citation metadata](CITATION.cff), and the [versioned release](https://github.com/LifeOfGame/NPFEEGNet-RD/releases/tag/v0.5.0).
+This repository contains the latest NPFEEGNet experiments for BCIC-IV-2a and
+BCIC-IV-2b with the small-learning-rate + segmentation-and-reconstruction
+(S&R) training recipe.
 
-Version-specific archive DOI: [10.5281/zenodo.23221417](https://doi.org/10.5281/zenodo.23221417). The DOI identifies the immutable `v0.5.0` archive; subsequent repository documentation updates do not change that archive.
+| Dataset | Channels | Classes | Protocol | Accuracy |
+| --- | --- | --- | --- | --- |
+| BCIC-IV-2a | 22 | 4 | Official T session → E session, per subject | 82.28% |
+| BCIC-IV-2b | 3 | 2 | Sessions 1–3 → sessions 4–5, per subject | 87.50% |
 
-## Independent training validation (7 October 2026)
+The reported means average seeds 0, 1 and 2 within each subject, then average
+the nine subjects equally. Reference run records and selected epoch counts
+are in [reference/2a.json](reference/2a.json) and
+[reference/2b.json](reference/2b.json).
 
-The maintained v2 trainer supports NPF, EEGNet, FBCNet, ATCNet and EEG Conformer
-without importing the excluded legacy engine or mixed-baseline module.
-FBCNet's official MIT source is now pinned and included with its license.
-See [license/source resolution](docs/LICENSE_RESOLUTION.md) and
-[raw-MAT-to-training commands and validation limits](docs/TRAINING_VALIDATION.md).
+## Environment
 
-One real OpenBMI subject completed source selection, fresh NPF fitting, target
-scoring and checkpoint inference; four baseline interfaces completed short
-integration runs. Re-exported raw MAT inputs matched all six historical input
-files byte-for-byte. This is not a 54-subject historical numerical reproduction.
-Release decision (2026-10-08): the legacy EEG-CSANet-derived engine remains
-private and is not part of this distribution. No permission request is being
-pursued for this release. No grant or historical numerical equivalence is claimed.
-
-## Portable reconstruction added (7 October 2026)
-
-See [portable audit commands](docs/PORTABLE_AUDITS.md). Complete-study aggregation
-now covers 40 arms and eight descriptive contrasts, with exact tie handling and
-separate Zhou2020 cohort IDs. Source-OOF temperature fitting and the non-collapse/
-soft-response audits are runnable from this checkout. A content-hashed registry
-maps 29 tables/figures in the inspected BSPC snapshot to their available sources
-and explicit gaps. No manuscript results were changed.
-
-The full CPU suite passed 18 tests; optional plotting and source-only temperature
-reconstruction also passed in an isolated server directory. The temperature,
-NLL and ECE reproduce the archived report. These are retrospective artifact
-checks, not a new prospective experiment or complete training replication.
-
-## Expanded historical evidence (7 October 2026)
-
-- `evidence/predictions/`: 45 groups, 5,346 runs, anonymous labels/probabilities and source hashes.
-- `scripts/audit_predictions.py`: portable subject-macro accuracy and pooled NLL/ECE reconstruction with NumPy only.
-- `evidence/historical/`: 573 original configurations, locks and result records, including superseded developmental records.
-- `historical_sources/`: original experiment-specific preprocessing/analysis/wrapper sources. These retain legacy imports and paths; they are reference material, not a turnkey training pipeline.
-- `baselines/`: preserved ATCNet and independently implemented EEG Conformer architecture controls, with provenance notices.
-- `evidence/environments/`: recovered common-duration audit environment, not a claim that all historical experiments used it.
+The recorded experiments used Python 3.12.14, PyTorch 2.11.0+cu126,
+NumPy 2.4.4 and scikit-learn 1.8.0 on NVIDIA RTX 2080 Ti GPUs.
+Install the PyTorch CUDA build suitable for the recorded CUDA 12.6 environment,
+then install the remaining pinned requirements.
 
 ```bash
-python scripts/audit_predictions.py --output /path/to/new-audit-directory
-python -m unittest discover -s tests -p test_prediction_audit.py -v
+python -m pip install -r requirements.txt
 ```
 
-See `docs/EXPERIMENT_MAP.md` before selecting results. No raw EEG, features or weights are included. Remaining original-engine licensing and execution-path gaps are explicit in `docs/REPRODUCTION_COVERAGE.md`.
+The model modules are identical to those in the experiment workspaces.
+The portable training entry point has been checked against the experiment
+training operations. Validation details are recorded in reference/validation.json.
+Hardware and runtime differences can affect numerical training trajectories.
 
-## Included
+## Prepared data
 
-- `model/`: fixed nominal 4–8, 8–13, 13–20, 20–30 and 30–40 Hz responses, shared spectral encoder, uniform aggregation, bounded spectral-logit residual and raw-path centering.
-- `training/`, `train.py`, `predict.py`: source-session-only epoch selection, fresh fixed-epoch fitting and inference.
-- `configs/`: model input dimensions, not complete frozen historical experiment recipes.
-- `tests/`: synthetic model-property, training, data-separation and inference checks.
-- `evidence/bp830/`: supplied run summaries, selection records and frozen epoch maps for the later BP8–30 control.
-- `evidence/bp830_protocol/`: portable validation and paired accuracy analysis.
-- `docs/REPRODUCTION_COVERAGE.md`: evidence coverage and remaining release work.
+Training starts from the processed NumPy arrays used by the experiments.
+Place each dataset's files in its own directory.
 
-## Install
+```text
+data/2a/
+  A01T_data.npy    A01T_label.npy    A01T_group.npy
+  A01E_data.npy    A01E_label.npy    A01E_group.npy
+  ... subjects 02–09
+data/2b/
+  B01T_data.npy    B01T_label.npy    B01T_group.npy
+  B01E_data.npy    B01E_label.npy    B01E_group.npy
+  ... subjects 02–09
+```
 
-Use Python 3.12. Install a PyTorch build appropriate for the CPU/CUDA platform, then run `python -m pip install -r requirements-baselines.txt` for all maintained models and tests (`requirements.txt` suffices for NPF-only use). These dependency bounds describe the maintained implementation, not a reconstructed historical environment. Do not replace an existing validated experimental environment merely to satisfy this example.
+Data arrays have shape [trials, channels, 1000], contain microvolt EEG,
+and use 250 Hz sampling. Trial order is preserved. Labels have shape [trials]
+or [trials, 1] and use the original 1-based class indices.
+Group arrays assign each trial to its original source run or session.
+
+- **2a** uses trial-relative [2, 6) seconds, 288 trials per T/E session,
+  22 EEG channels and labels 1–4. Source group IDs are 0–5.
+  Selection trains on groups 0–3 and validates on group 4, then trains on
+  groups 0–4 and validates on group 5. The final training duration is the
+  rounded median of the two selected epochs.
+- **2b** uses trial-relative [3, 7) seconds, three EEG channels and labels 1–2.
+  Source group IDs are 0–2 for sessions 1–3. Source trials vary by subject.
+  Selection trains on groups 0–1 and validates on group 2. The final duration
+  is the selected epoch. Target E arrays concatenate sessions 4 and 5.
+
+The model performs raw-pathway temporal demeaning internally.
+
+## Training
 
 ```bash
-python -m unittest discover -s tests -v
-python scripts/verify_release_files.py
-python evidence/bp830_protocol/verify.py
-python evidence/bp830_protocol/analyze.py
+python train.py --dataset 2a --data-dir data/2a --output outputs --device cuda:0
+python train.py --dataset 2b --data-dir data/2b --output outputs --device cuda:0
 ```
 
-The evidence scripts locate their data relative to the script and can run from another working directory. They validate 324 final rows and reproduce the corrected within-bandpass W/T/L of **27/6/21**. Integer correct-count differences resolve ties; original means and bootstrap computations are retained. The historical-comparator bootstrap seed in this analysis is not the original primary-analysis seed.
+By default each command runs all nine subjects and all three seeds sequentially.
+Use `--subjects 1` and `--seeds 0` to run one unit. Selection and final
+training can also be invoked separately using `--stage select` and
+`--stage final`. Final training checks that the source data, code and
+selection limit match the saved selection identity.
 
-## Train on your own prepared session arrays
+The fixed recipe uses Adam, learning rate 0.0002, betas (0.5, 0.999),
+zero weight decay, 2000 source selection epochs and a constant learning rate.
+Each logical batch contains up to 72 original trials plus an equal number
+of same-class S&R trials, processed in microbatches of 18 with weighted
+gradient accumulation. Each synthetic trial uses eight 125-sample segments
+with synchronous donor selection across channels.
 
-Data are not bundled. An NPZ contains `X` (trials × channels × time), `y` and source-session `groups`. Set `--label-offset 0` for zero-based labels or `1` for labels starting at one. Ensure the data and preprocessing match your study. See `configs/README.md` for dimensions.
+Epoch selection maximizes validation correct counts, then minimizes NLL,
+then prefers the earlier epoch. Each final model is freshly initialized
+and fitted to all source trials for its selected duration. The target
+arrays are decoded after that fit. Inference uses chunks of 18 for 2a and
+32 for 2b, matching the recorded experiments.
+
+The loss is CE(fused) + 0.5 CE(raw) + 0.25 CE(spectral).
+An optional `--epochs 2 --device cpu` run checks the pipeline on CPU.
+Use a separate output directory for short checks. The reported recipe uses
+2000 selection epochs.
+
+Each completed stage has its own directory. If a run is interrupted, choose
+a new output directory or remove its incomplete stage directory before retrying.
+
+## Inference and summaries
 
 ```bash
-python train.py select --train /path/to/session1.npz --model-config configs/openbmi.json --label-offset 0 --seed 0 --output runs/s01_seed0_selection
-python train.py fit --train /path/to/session1.npz --selection runs/s01_seed0_selection/selection.json --test /path/to/session2.npz --output runs/s01_seed0_final
-python predict.py --checkpoint runs/s01_seed0_final/model.pt --input /path/to/session2.npz --output runs/s01_seed0_predictions.npz
+python predict.py --dataset 2a --checkpoint outputs/2a/sub01_seed0/final/model.pt --input data/2a/A01E_data.npy --output outputs/predictions.npz
+python summarize.py --dataset 2a --output outputs
+python summarize.py --dataset 2b --output outputs
 ```
 
-The default execution device is CPU. Select a CUDA device explicitly through the CLI when appropriate. Existing output directories are rejected to avoid overwriting experiments. Source group identities, acquisition units, channel order, temporal windows and preprocessing must be established before training. Synthetic tests do not establish paper-result replication.
+Prediction files contain logits, probabilities and zero-based predictions.
+Training also stores labels, groups, selected epochs and histories.
 
-## Validation
-
-On 7 October 2026, 22 tests passed (21-model/statistics/training suite plus the new preprocessing-guard test) on CPU in an isolated server directory (Python 3.12.14, PyTorch 2.11.0+cu126, NumPy 2.4.4). The 324-row BP8–30 verification and corrected paired analysis also passed. See `docs/VALIDATION_20261007.json` for the initial checks and `docs/VALIDATION_EXPANDED_20261007.json` for the expanded checks. These checks do not constitute rerunning the paper experiments.
-
-## Scientific and licensing scope
-
-Temporal centering is an established preprocessing operation. The paper's positive OpenBMI finding is preprocessing-dependent and is not a claim of universal centering benefit or general architectural superiority. Later filtering and external-data controls must retain their reported limitations.
-
-See `LICENSE_SCOPE.md` and `THIRD_PARTY_NOTICES.md`. Raw EEG, model weights, mixed-provenance legacy training engines and incomplete author/ethics documents are intentionally excluded. A full paper release requires resolving their provenance or documenting how readers can obtain required components lawfully, and validating the resulting execution path.
-
-Repository: https://github.com/LifeOfGame/NPFEEGNet-RD
-
-No Zenodo DOI or formal release tag is claimed. Complete the coverage checklist and confirm author metadata before archiving the paper-associated version.
+See [LICENSE_SCOPE.md](LICENSE_SCOPE.md) and
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for licensing and attribution.
